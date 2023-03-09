@@ -1,0 +1,53 @@
+<div *ngIf="courses.length>0;then course else nocourse"></div>
+<ng-template #course>
+    Show List
+</ng-template>
+<ng-template #nocourse>
+    No Course
+</ng-template>
+
+<select>
+    <option *ngFor="let item of items" [value]="item.name">
+        {{item.name}}
+    </option> 
+</select>
+
+<div *ngFor="let form of forms">
+    <div [ngSwitch]="form.element">
+        <div *ngSwitchCase="'text'">
+            <div *ngFor="let frm of forms">
+                <input type="{{ frm.field }}">
+            </div>
+        </div>
+    </div>
+    <div [ngSwitch]="form.element">
+        <div *ngSwitchCase="'password'">
+            <div *ngFor="let frm of forms">
+                <input type="{{ frm.field }}">
+            </div>
+        </div>
+    </div>
+    <div [ngSwitch]="form.element">
+        <div *ngSwitchCase="'textarea'">
+            <div *ngFor="let frm of forms">
+                <textarea></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div [ngClass]="{'boldClass':true, 'italicClass':true, 'colorClass':true}">{{attrdir | uppercase}}</div>
+<div [ngStyle]="{backgroundColor:val==10 ? 'red' : 'yellow'}">{{attrdir}}</div>
+
+<p appInputformat>Highlight me!</p>
+
+<div>{{courses2.title | uppercase}}</div>
+<div>{{courses2.student | number}}</div>
+<div>{{courses2.rating | number : '2.1-1'}}</div>
+<div>{{courses2.price | currency: 'INR'}}</div>
+<div>{{courses2.date | date: 'shortDate'}}</div>
+
+<div>{{pipeEx | summary}}</div>
+
+<input type="text" [(ngModel)]="searchtext">
+<app-highlight [searchString]="searchtext" [searchValue]="value"></app-highlight>

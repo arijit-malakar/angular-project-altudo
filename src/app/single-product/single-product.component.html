@@ -1,0 +1,25 @@
+<div class="container mt-5" *ngIf="productDetail">
+  <div class="row">
+    <div class="col-md-5 my-5">
+      <div class="image_cont">
+          <img src="{{productDetail.thumbnail}}">
+      </div>
+    </div>
+    <div class="col-md-6 my-5">
+      <div class="product_info">
+          <div class="title">{{productDetail.brand}} {{productDetail.title}}</div>
+          <div class="category">{{productDetail.category}}</div>
+          <div class="ratings">
+            <div class="rate">Ratings: {{productDetail.rating}}
+              <span class="icon"></span>
+            </div>
+          </div>
+          <div class="price">Rs. {{productDetail.price}}</div>
+          <div class="discount">({{productDetail.discountPercentage}}% off on MRP)</div>
+          <div class="info">{{productDetail.description}}</div>
+          <div class="info">Units Available: {{productDetail.stock}}</div>
+          <button (click)="removeProduct()">Back to Main Page</button>
+      </div>
+    </div>
+  </div>
+</div>

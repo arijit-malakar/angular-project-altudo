@@ -1,0 +1,25 @@
+<div class="container" *ngIf="productDetail">
+
+
+  <div class="row">
+    <div class="col-md-4">
+     <div class="pd-image-wrap">
+      <img class="pd-image" mat-card-md-image src="{{ productDetail.image }}" />
+    </div>
+    </div>
+    <div class="col-md-6">
+      <h1 class="text-success"><strong>{{ productDetail.title }}</strong></h1>
+      <p class="text-warning">{{ productDetail.brand }}</p>
+      <p><strong>Price:</strong><span class="text-secondary"> Rs.{{ productDetail.price }}</span></p>
+      <p><strong>Discount:</strong><span class="text-secondary"> {{ productDetail.rating.rate }}%</span></p>
+      <p><strong>Category:</strong> <span class="text-danger mt-3"> {{ productDetail.category | titlecase }}</span></p>
+      <p class="mb-4 mt-4">{{ productDetail.description }}</p>
+      <div>
+        <button class="btn btn-primary">Checkout</button>&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-warning" (click)="editSingleProductDetail()">
+          Edit Product
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

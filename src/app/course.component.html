@@ -1,0 +1,97 @@
+<p>Corses works</p>
+
+<!-- <div *ngIf="courses.length > 0">
+courses list
+</div>
+
+<div *ngIf="courses.length == 0">
+   no courses list
+</div> -->
+
+
+<!-- <div *ngIf="courses.length > 0; else nocourse">
+    courses list
+    </div>
+<ng-template #nocourse>
+    no courses list
+</ng-template> -->
+
+<div *ngIf="courses2.length > 0; then course else nocourse">
+    courses list
+</div>
+
+<ng-template #course>
+    courses list
+</ng-template>    
+<ng-template #nocourse>
+    no courses list
+</ng-template>
+
+<select [(ngModel)]="selectedValue">
+    <option *ngFor="let item of items" [value]="item.name">
+        {{item.name}}
+    </option>
+</select>
+{{selectedValue}}
+
+<div *ngFor="let form of forms ">
+    <div [ngSwitch]="form.element">
+        <div *ngSwitchCase="'text'">
+            <div *ngFor="let frm of form.items">
+                <input type="{{frm.field}}" placeholder="{{form.element}}" [(ngModel)]="frm.ngmodel">
+            </div>
+        </div>
+    </div>
+    <div [ngSwitch]="form.element">
+        <div *ngSwitchCase="'password'">
+            <div *ngFor="let frm of form.items">
+                <input type="{{frm.field}}" placeholder="{{form.element}}" [(ngModel)]="frm.ngmodel">
+            </div>
+        </div>
+    </div>
+    <div [ngSwitch]="form.element">
+        <div *ngSwitchCase="'textarea'">
+            <div *ngFor="let frm of form.items">
+                <textarea placeholder="{{form.element}}"[(ngModel)]="frm.ngmodel" cols="30" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div [ngClass]="{'boldClass':true, 'italicClass':true, 'colorClass':false}">{{attrdir | uppercase}}</div>
+<div [ngStyle]="{backgroundColor:val==10 ? 'red' : 'yellow'}">{{attrdir}}</div>
+
+<h1 appInputformat>Demo custom directive</h1>
+<h2 appInputformat [color]="'pink'">Demo custom directive 2</h2>    
+
+<div>{{courses.title | uppercase}}</div>
+<div>{{courses.student | number}}</div>
+<div>{{courses.rating | number : '2.1-1'}}</div>
+<div>{{courses.price | currency: 'INR'}}</div>
+<div>{{courses.date | date: 'shortDate'}}</div>
+
+<div>{{pipeSummary | summary: 10}}</div>
+<div>{{pipeSummary | summary}}</div>
+
+
+<input type="text" [(ngModel)]="searchtext">
+<app-highlight [searchString]="searchtext" [searchValue]="value"></app-highlight>
+{{value}}
+
+<div class="card">
+    <div class="card-header">
+        <ng-content select=".header">
+
+        </ng-content>
+    </div>
+    <div class="card-body">
+        <ng-content select=".body">
+
+        </ng-content>
+    </div>
+    <div class="footer">
+        <ng-content select=".footer">
+
+        </ng-content>
+    </div>
+</div>

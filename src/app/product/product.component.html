@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-sm-12 cards" *ngFor="let product of products">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>{{ product.brand }}</mat-card-title>
+          <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{ product.thumbnail }}" alt="Product Image" />
+        <mat-card-content>
+          <p>
+            {{ product.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button (click)="passData(product.id)" class="btn btn-dark">View Product</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

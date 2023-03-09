@@ -1,0 +1,10 @@
+<p>If more than two directive used in same eemrnt we use ng-container</p>
+
+<ng-container *ngFor="let match of result">
+    <mark class="hightlight-text" *ngIf="match===searchString; else noMatch">
+        {{match}}
+    </mark>
+    <ng-template #noMatch>
+        {{match}}
+    </ng-template>
+</ng-container>

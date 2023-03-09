@@ -1,0 +1,87 @@
+<!-- <app-login [counter]="count" *ngIf="hideChild"></app-login> -->
+<!-- <app-login></app-login> -->
+<!-- <button (click)="toggle()">toggle</button>
+<button (click)="hdChild()">Show/Hide Cild</button>
+<course></course>
+<button (click)="incrFun()">INCR</button>
+<button (click)="decrFun()">DECR</button> -->
+
+<!-- <div class="container container-fluid">
+    <div class="row">
+        <h3 class="mt-5">Hello Title</h3>
+    </div>
+</div>
+
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+<app-data-binding></app-data-binding> -->
+
+<!-- <div *ngIf="!productdetail">
+<app-products (productDetail)="getData($event)"></app-products>
+</div>
+<div *ngIf="productdetail">
+<app-product-detail [productDetail]="productdetail"></app-product-detail>
+</div> -->
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+
+<!-- <div *ngIf="!ProductId; else singleProduct">
+  <app-products (productDetail)="getData($event)"></app-products>
+</div>
+<div> -->
+
+<ng-template #singleProduct>
+  <!-- <app-product-detail (backProductListPage)="getData($event)" [productDetail]="productdetail"></app-product-detail> -->
+  <!-- <app-product-detail (backProductListPage)="getData($event)" [id]="ProductId"></app-product-detail> -->
+</ng-template>
+<!-- </div> -->
+
+<!-- <course>
+  <div class="header">
+    <h1>Header</h1>
+  </div>
+  <div class="body">
+    <p>body</p>
+  </div>
+  <div class="footer">
+    <h1>Footer</h1>
+  </div>
+</course> -->
+
+<!-- <app-login-form></app-login-form> -->
+<!-- <app-header (log)="checkloginstatus($event)"></app-header> -->
+
+<app-header></app-header>
+<div class="container min-body">
+  
+  <!-- <ng-http-loader></ng-http-loader> -->
+  <!-- <ng-http-loader 
+    [backdrop]="false"
+    [backgroundColor]="'#ff0000'"
+    [debounceDelay]="100"
+    [extraDuration]="300"
+    [minDuration]="300"
+    [spinner]="spinnerStyle.skWave"
+    >
+</ng-http-loader> -->
+
+<ng-container *ngIf="!loggedin;else homeScreen">
+  <app-login-form (isloggedin)="checkloginstatus($event)"></app-login-form>
+</ng-container>
+
+<ng-template #homeScreen>
+  <div class="container-fluid">
+    <main role="main" class="container">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</ng-template>
+
+</div>
+
+<app-footer></app-footer>
+

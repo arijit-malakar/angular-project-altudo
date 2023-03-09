@@ -1,0 +1,71 @@
+<p>data-binding works!</p>
+
+<!-- One way binding -->
+
+{{ value }}
+
+<input [value]="name" type="text" />
+
+<p [class]="pClass">class binding</p>
+<p class="redColor greenColor blueColor">normal class</p>
+<p [style.color]="'yellow'">style binding</p>
+
+<table border="1">
+  <tr>
+    <td [colSpan]="colspan">1</td>
+    <td [attr.colspan]="colspan">2</td>
+    <td [ariaLabel]="arialabel">3</td>
+    <td [attr.aria-label]="arialabel">4</td>
+  </tr>
+</table>
+
+<button (click)="updateValue()">Event binding</button>
+
+<input type="text" (keyup)="keyPressed($event)"><br><br>
+
+<input type="text" (keyup.enter)="keyUP()" /><br><br>
+
+<input type="text" (keyup)="keyUP2(test.value)" name="test" #test><br><br>
+
+<!-- two way binding -->
+
+{{name}} 
+
+<input type="text" [(ngModel)]="name" name="name" />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="form.name"
+            />
+          </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email"
+          />
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input
+              type="phone"
+              class="form-control"
+              name="mobile"
+              [(ngModel)]="form.mobile"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="saveForm()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

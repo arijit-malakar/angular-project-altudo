@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="col-md-6">
+    <img src="../../../assets/td.jpg" width="550" />
+  </div>
+
+  <!-- Single Way Binding -->
+  <!-- {{ userform | json }} -->
+
+  <!-- <div class="col-md-6">
+    <form #userform="ngForm">
+      {{ userform.value | json }}
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput name="name" ngModel required />
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Age</mat-label>
+          <input type="text" matInput name="age" ngModel required />
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Email</mat-label> 
+          <input type="email" matInput name="email" ngModel required />
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Mobile</mat-label>
+          <input type="number" matInput name="mobile" ngModel required />
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <button
+          class="btn btn-primary"
+          color="primary"
+          type="submit"
+          (click)="submitForm(userform)"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div> -->
+
+  <!-- Two Way Binding -->
+
+  <div class="col-md-6">
+    <form #userform="ngForm">
+      {{ userform.value | json }}
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Name {{ name.invalid }}</mat-label>
+          <input
+            type="text"
+            matInput
+            name="name"
+            [(ngModel)]="userformtdf.name"
+            #name="ngModel"
+            required
+            [class.is-invalid]="name.invalid && name.touched"
+          />
+          <mat-error class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Age</mat-label>
+          <input
+            type="text"
+            matInput
+            name="age"
+            [(ngModel)]="userformtdf.age"
+            #age="ngModel"
+            ngModel
+            required
+            [class.is-invalid]="age.invalid && age.touched"
+          />
+          <mat-error class="text-danger" [class.d-none]="age.valid || age.untouched">Age is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Email</mat-label>
+          
+          <input
+            type="email"
+            matInput
+            name="email"
+            [(ngModel)]="userformtdf.email"
+            #email="ngModel"
+            ngModel
+            required
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            [class.is-invalid]="email.invalid && email.touched"
+          />
+          <!-- {{email.errors | json}} -->
+          <div *ngIf="email.errors && email.touched">
+            <mat-error class="text-danger" *ngIf="email.errors['required']">Email is required</mat-error>
+            <mat-error class="text-danger" *ngIf="email.errors['pattern']">Email is not valid</mat-error>
+          </div>
+          
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <mat-form-field class="col-md-10">
+          <mat-label>Mobile</mat-label>
+          <input
+            type="number"
+            matInput
+            name="mobile"
+            [(ngModel)]="userformtdf.mobile"
+            #mobile="ngModel"
+            ngModel
+            required
+            [class.is-invalid]="mobile.invalid && mobile.touched"
+          />
+          <mat-error class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Mobile is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-12">
+        <button
+          class="btn btn-primary"
+          color="primary"
+          type="submit"
+          (click)="submitForm(userform)"
+          [disabled]="userform.form.invalid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
