@@ -1,43 +1,70 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary bg-custom">
   <div class="container">
     <div class="row">
       <div class="col-2">
         <a class="navbar-brand" routerLink="/">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" width="50" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png"
+            width="50"
+          />
         </a>
       </div>
-      <div class="col-10 d-flex">
+      <div class="col-10 d-flex px-4">
         <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/registerform" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/loginform" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="/"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="/products"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="/registerform"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="/loginform"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
